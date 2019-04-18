@@ -45,9 +45,13 @@ set(SOURCE_FILES
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 add_executable(tpcc_mysql ${SOURCE_FILES})
-
+#tpcc_mysql
+#tpcc_start tpcc_load
 
 #add_custom_target(tpcc_mysql COMMAND make -C ${tpcc_mysql_SOURCE_DIR}/src
 #        CLION_EXE_DIR=${PROJECT_BINARY_DIR})
+add_custom_target(tpcc_start COMMAND make -C ${tpcc_mysql_SOURCE_DIR}/src
+        CLION_EXE_DIR=${PROJECT_BINARY_DIR})
+
 add_custom_target(tpcc_load COMMAND make -C ${tpcc_mysql_SOURCE_DIR}/src
         CLION_EXE_DIR=${PROJECT_BINARY_DIR})

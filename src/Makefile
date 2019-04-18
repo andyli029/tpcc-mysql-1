@@ -4,7 +4,8 @@
 
 
 
-LIBS=		`mysql_config --libs_r` -lrt
+LIBS=		`mysql_config --libs_r`
+#-lrt
 
 INC=		-I. `mysql_config --include`
 
@@ -21,7 +22,7 @@ OBJS=		main.o spt_proc.o driver.o support.o sequence.o rthist.o sb_percentile.o 
 .c.o:
 	$(CC) $(CFLAGS) $(INC) $(DEFS) -c $*.c
 
-all: ../tpcc_load ../tpcc_start
+all: ../tpcc_start ../tpcc_load
 
 ../tpcc_load : load.o support.o
 	$(CC) load.o support.o $(LIBS) -o ../tpcc_load
